@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator animator;
     private Collider2D col2d;
-    private AudioSource footsteps;
 
 
     [SerializeField] private LayerMask ground;
@@ -20,7 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private int goldCoins = 0;
     [SerializeField] private Text coinsText;
-    [SerializeField] private float hurtForce = 10;
+    [SerializeField] private float hurtForce = 3;
+    [SerializeField] private AudioSource footsteps;
+    [SerializeField] private AudioSource pickCoin;
+    [SerializeField] private AudioSource hurtSound;
 
     // Start is called before the first frame update
     private void Start()
@@ -29,7 +31,6 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         col2d = GetComponent<Collider2D>();
-        footsteps = GetComponent<AudioSource>();
 
         coinsText.text = goldCoins.ToString();
     }
@@ -124,6 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Collectable")
         {
+            pickCoin.Play();
             Destroy(collision.gameObject);
             goldCoins += 1;
             coinsText.text = goldCoins.ToString();
@@ -142,6 +144,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                hurtSound.Play();
                 state = State.hurt;
                 if(other.gameObject.transform.position.x > transform.position.x)
                 {

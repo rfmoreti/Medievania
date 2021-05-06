@@ -8,7 +8,6 @@ public class SkeletionController : Enemy
     private State state = State.idle;
 
     private SpriteRenderer sr;
-    private Rigidbody2D rb;
 
     [SerializeField] private float rightWP;
     [SerializeField] private float leftWP;
@@ -18,7 +17,6 @@ public class SkeletionController : Enemy
     protected override void Start()
     {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
     }
 
