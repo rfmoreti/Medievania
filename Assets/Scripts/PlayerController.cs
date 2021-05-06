@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator animator;
     private Collider2D col2d;
+    
 
 
     [SerializeField] private LayerMask ground;
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource pickCoin;
     [SerializeField] private AudioSource hurtSound;
 
+    public int maxHealth = 3;
+    public int currentHealth;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -34,6 +38,7 @@ public class PlayerController : MonoBehaviour
         col2d = GetComponent<Collider2D>();
 
         coinsText.text = goldCoins.ToString();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -122,6 +127,10 @@ public class PlayerController : MonoBehaviour
         footsteps.Play();
     }
 
+    private void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Collectable")
@@ -147,6 +156,7 @@ public class PlayerController : MonoBehaviour
             {
                 hurtSound.Play();
                 state = State.hurt;
+                TakeDamage(1);
                 if(other.gameObject.transform.position.x > transform.position.x)
                 {
                     //Inimigo na direita, receber dano e mover para esquerda
