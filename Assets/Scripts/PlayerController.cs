@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    private enum State { idle, running, jumping, falling, hurt }
+    private enum State { idle, running, jumping, falling, hurt}
     private State state = State.idle;
 
     private Rigidbody2D rb;
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour
 
     private void AnimationState()
     {
-       if(state == State.jumping)
+        if (state == State.jumping)
         {
             if(rb.velocity.y < 0.1)
             {
@@ -118,8 +119,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             state = State.idle;
-        }
-
+        }       
     }
 
     private void Footsteps()
@@ -130,6 +130,8 @@ public class PlayerController : MonoBehaviour
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if (currentHealth <= 0)
+            animator.SetTrigger("death");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -140,6 +142,11 @@ public class PlayerController : MonoBehaviour
             goldCoins += 1;
             coinsText.text = goldCoins.ToString();
         }
+    }
+
+    private void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
