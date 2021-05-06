@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] private float jumpForce = 10;
     [SerializeField] private int goldCoins = 0;
-    [SerializeField] private Text coinsText;
+    [SerializeField] private TextMeshProUGUI coinsText;
     [SerializeField] private float hurtForce = 3;
     [SerializeField] private AudioSource footsteps;
     [SerializeField] private AudioSource pickCoin;
