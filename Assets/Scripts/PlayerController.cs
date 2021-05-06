@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator animator;
     private Collider2D col2d;
+    private AudioSource footsteps;
 
 
     [SerializeField] private LayerMask ground;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         col2d = GetComponent<Collider2D>();
+        footsteps = GetComponent<AudioSource>();
 
         coinsText.text = goldCoins.ToString();
     }
@@ -111,6 +113,11 @@ public class PlayerController : MonoBehaviour
             state = State.idle;
         }
 
+    }
+
+    private void Footsteps()
+    {
+        footsteps.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
