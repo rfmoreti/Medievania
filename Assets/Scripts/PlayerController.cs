@@ -49,10 +49,14 @@ public class PlayerController : MonoBehaviour
         {
             Movement();
         }
-        
 
         AnimationState();
         animator.SetInteger("state", (int)state);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void Movement()
