@@ -20,15 +20,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask ground;
     [SerializeField] private float speed = 5;
     [SerializeField] private float jumpForce = 10;
-    [SerializeField] private int goldCoins = 0;
-    [SerializeField] private TextMeshProUGUI coinsText;
     [SerializeField] private float hurtForce = 3;
     [SerializeField] private AudioSource footsteps;
     [SerializeField] private AudioSource pickCoin;
     [SerializeField] private AudioSource hurtSound;
 
-    public int maxHealth = 3;
-    public int currentHealth;
+    
 
     // Start is called before the first frame update
     private void Start()
@@ -37,9 +34,6 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         col2d = GetComponent<Collider2D>();
-
-        coinsText.text = goldCoins.ToString();
-        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -133,9 +127,12 @@ public class PlayerController : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        PermanentUI.UI.currentHealth -= damage;
+        if (PermanentUI.UI.currentHealth <= 0)
+        {
             animator.SetTrigger("death");
+            PermanentUI.UI.Reset();
+        }            
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -143,8 +140,8 @@ public class PlayerController : MonoBehaviour
         {
             pickCoin.Play();
             Destroy(collision.gameObject);
-            goldCoins += 1;
-            coinsText.text = goldCoins.ToString();
+            PermanentUI.UI.goldCoins += 1;
+            PermanentUI.UI.coinsText.text = PermanentUI.UI.goldCoins.ToString();
         }
     }
 

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HealthStatus : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerHealth;
     [SerializeField] private Image fillImage;
     private Slider slider;
 
@@ -17,6 +16,6 @@ public class HealthStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = playerHealth.currentHealth;
+        slider.value = PermanentUI.UI.currentHealth;
     }
 }

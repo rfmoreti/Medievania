@@ -11,6 +11,13 @@ public class SceneChange : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (gameObject.name == "FallDeath")
+                PermanentUI.UI.Reset();                            
+            else
+                PermanentUI.UI.coinCheckpoint = PermanentUI.UI.goldCoins;
+
+
+
             SceneManager.LoadScene(destinationScene);
         }
     }

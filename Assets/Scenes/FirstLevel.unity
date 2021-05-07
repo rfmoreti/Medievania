@@ -17970,6 +17970,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9031bf3ba822660449273b4188bff638, type: 3}
+--- !u!1 &7978917171874813646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7978917172033957474, guid: 9031bf3ba822660449273b4188bff638, type: 3}
+  m_PrefabInstance: {fileID: 7978917171874813645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7978917171874813647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978917171874813646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d2d02880326fc429ed1c5b751cdcd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCoins: 0
+  coinsText: {fileID: 1431623213}
+  maxHealth: 3
+  currentHealth: 0
 --- !u!1001 &8695530078052179677
 PrefabInstance:
   m_ObjectHideFlags: 0
