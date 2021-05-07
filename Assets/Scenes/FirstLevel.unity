@@ -17384,6 +17384,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.27
       objectReference: {fileID: 0}
+    - target: {fileID: 39743188313493858, guid: 7fbf2b3fd3c27f34b8bdc710b7ded5c2, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 31.679836
+      objectReference: {fileID: 0}
+    - target: {fileID: 39743188313493858, guid: 7fbf2b3fd3c27f34b8bdc710b7ded5c2, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -9.490027
+      objectReference: {fileID: 0}
+    - target: {fileID: 39743188313493858, guid: 7fbf2b3fd3c27f34b8bdc710b7ded5c2, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 31.648666
+      objectReference: {fileID: 0}
+    - target: {fileID: 39743188313493858, guid: 7fbf2b3fd3c27f34b8bdc710b7ded5c2, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 11.3312
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fbf2b3fd3c27f34b8bdc710b7ded5c2, type: 3}
 --- !u!1001 &1747838549756120991
