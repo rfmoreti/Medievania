@@ -1204,7 +1204,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Feito por:
 
-    Rafael Moreti  RA: N44082-1'
+    Rafael Moreti'
 --- !u!222 &2135569078
 CanvasRenderer:
   m_ObjectHideFlags: 0
